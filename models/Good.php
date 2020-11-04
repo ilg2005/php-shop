@@ -13,14 +13,14 @@ class Good extends ActiveRecord
     public function getAllGoods() {
         $goods = Yii::$app->cache->get('goods');
         if (!$goods) {
-            $goods = Good::find()->all();
+            $goods = self::find()->all();
             Yii::$app->cache->set('goods', $goods, 60);
         }
         return $goods;
     }
 
     public function getGoodsByCategory($categoryName) {
-        return Good::find()->where(['category' => $categoryName])->all();
+        return self::find()->where(['category' => $categoryName])->all();
     }
 
     public static function tableName()

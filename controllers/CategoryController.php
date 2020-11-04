@@ -12,16 +12,16 @@ use yii\web\Controller;
 class CategoryController extends Controller
 {
 
-    public function actionIndex() {
+    public function actionIndex($id = '') {
         $model = new Good();
         $goods = $model->getAllGoods();
-/*        $category = Yii::$app->controller->action->id;
-        if ($category) {
-            $goods = $model->getGoodsByCategory($category);
-        }*/
+        if ($id) {
+            $goods = $model->getGoodsByCategory($id);
+        }
 
         return $this->render('index', compact('goods'));
     }
+
 
 
 }
