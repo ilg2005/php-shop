@@ -19,6 +19,10 @@ class Good extends ActiveRecord
         return $goods;
     }
 
+    public function getGoodsByCategory($categoryName) {
+        return Good::find()->where(['category' => $categoryName])->all();
+    }
+
     public static function tableName()
     {
         return 'good';
