@@ -4,9 +4,11 @@ use app\widgets\MenuWidget;
 
 ?>
 <div class="container">
-    <?= MenuWidget::widget() ?>
-
     <div class="row">
+        <?= MenuWidget::widget() ?>
+    </div>
+
+    <div class="row justify-content-center">
 
         <?php foreach ($goods as $good) : ?>
             <div class="col-4">
