@@ -4,12 +4,9 @@
 
 /* @var $content string */
 
-use app\widgets\Alert;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -33,7 +30,9 @@ AppAsset::register($this);
                 <a href="/">На главную</a>
                 <a href="#">Вход в админку</a>
                 <a href="#">Корзина</a>
+                <form action="<?= Url::to(['category/index']) ?>" method="get">
                 <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
+                </form>
             </div>
         </div>
     </header>

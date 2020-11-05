@@ -23,6 +23,10 @@ class Good extends ActiveRecord
         return self::find()->where(['category' => $categoryName])->all();
     }
 
+    public function getSearchResults($search) {
+        return self::find()->where(['like', 'name', $search])->orWhere(['like', 'composition', $search])->all();
+    }
+
     public static function tableName()
     {
         return 'good';
