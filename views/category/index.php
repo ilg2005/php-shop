@@ -7,8 +7,8 @@ use app\widgets\MenuWidget;
     <div class="row">
         <?= MenuWidget::widget() ?>
     </div>
-    <?php if (Yii::$app->request->get('search')) : ?>
-        <h4 class="text-center">Результаты поиска "<?= $search ?>":</h4>
+    <?php if ($search) : ?>
+        <h4 class="text-center">Результаты поиска по запросу "<?= $search ?>":</h4>
     <?php endif; ?>
 
     <div class="row justify-content-center">
