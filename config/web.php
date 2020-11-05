@@ -51,6 +51,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                'category/<catName:.+>' => 'category/index',
+               'good/<name:.+>' => 'good/index',
             ],
         ],
 

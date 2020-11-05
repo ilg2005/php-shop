@@ -27,6 +27,10 @@ class Good extends ActiveRecord
         return self::find()->where(['like', 'name', $search])->orWhere(['like', 'composition', $search])->all();
     }
 
+    public function getSpecificGood($name) {
+        return self::find()->where(['link_name' => $name])->one();
+    }
+
     public static function tableName()
     {
         return 'good';
