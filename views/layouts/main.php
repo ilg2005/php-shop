@@ -51,20 +51,54 @@ AppAsset::register($this);
 
 <!-- Modal -->
 <div class="modal fade" id="cart" tabindex="-1" aria-labelledby="cartLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="cartLabel">Modal title</h5>
+                <h2 class="modal-title" id="cartLabel">Корзина</h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Содержимое корзины
+
+                <table class="table table-striped">
+
+                    <thead>
+                    <tr>
+                        <th scope="col">Фото</th>
+                        <th scope="col">Наименование</th>
+                        <th scope="col">Количество</th>
+                        <th scope="col">Цена</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td style="vertical-align: middle" width="150"><img src="/img/" alt="img"></td>
+                        <td style="vertical-align: middle">test</td>
+                        <td style="vertical-align: middle">test</td>
+                        <td style="vertical-align: middle">1200 рублей</td>
+                        <td class="delete" style="text-align: center; cursor: pointer; vertical-align: middle; color: red">
+                            <span>&#10006;</span></td>
+                    </tr>
+                    <tr style="border-top: 4px solid black">
+                        <td colspan="4">Всего товаров</td>
+                        <td class="total-quantity">12></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">На сумму </td>
+                        <td style="font-weight: 700">1200 рублей</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal-footer modal-buttons justify-content-around">
+                <button type="button" class="btn btn-danger">Очистить корзину</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Продолжить покупки</button>
+                <button type="button" class="btn btn-success btn-next">Оформить заказ</button>
             </div>
         </div>
     </div>
