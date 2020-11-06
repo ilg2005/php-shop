@@ -3,7 +3,7 @@ $('.product-button__add').on('click', function (evt) {
     let name = $(this).data('name');
 
     $.ajax( {
-        url: 'cart/add',
+        url: '/cart/add',
         data: {name: name},
         type: 'GET',
         success: function (cartHtml) {
