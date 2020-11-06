@@ -16,8 +16,9 @@ class CartController extends Controller
         $good = $model->getSpecificGood($name);
         $session = Yii::$app->session;
         $session->open();
+      //  $session->remove('cart');
         $cart = new Cart();
-        $cart->addToCart();
+        $cart->addToCart($good);
         return $this->renderPartial('add', compact('good', 'session'));
     }
 

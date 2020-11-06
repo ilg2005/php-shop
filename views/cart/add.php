@@ -1,6 +1,10 @@
 <div class="modal-header border-0">
     <h2 class="modal-title" id="cartLabel">Корзина</h2>
-   <?= $session['cart'] ?>
+   <?
+   echo "<pre>";
+   var_dump($session['cart']);
+   echo "<pre>";
+   ?>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -30,7 +34,7 @@
         </tr>
         <tr style="border-top: 4px solid black">
             <td colspan="4">Всего товаров</td>
-            <td class="total-quantity">---></td>
+            <td class="total-quantity">---</td>
         </tr>
         <tr>
             <td colspan="4">На сумму </td>
