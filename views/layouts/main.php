@@ -29,7 +29,7 @@ AppAsset::register($this);
             <div class="header">
                 <a href="/">На главную</a>
                 <a href="#">Вход в админку</a>
-                <a href="#">Корзина</a>
+                <a href="#" data-toggle="modal" data-target="#cart">Корзина</a>
                 <form action="<?= Url::to(['category/index']) ?>" method="get">
                 <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
                 </form>
@@ -43,11 +43,33 @@ AppAsset::register($this);
     <footer>
         <div class="container">
             <div class="footer">
-                &copy; Все права защищены или типа того
+                &copy; Все права защищены
             </div>
         </div>
     </footer>
 </section>
+
+<!-- Modal -->
+<div class="modal fade" id="cart" tabindex="-1" aria-labelledby="cartLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cartLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Содержимое корзины
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php $this->endBody() ?>
 </body>
 </html>
