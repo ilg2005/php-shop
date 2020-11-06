@@ -1,5 +1,6 @@
 <div class="modal-header border-0">
     <h2 class="modal-title" id="cartLabel">Корзина</h2>
+   <?= $session['cart'] ?>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
