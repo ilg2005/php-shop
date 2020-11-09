@@ -41,11 +41,11 @@
             <?php endforeach; ?>
             <tr style="border-top: 4px solid black">
                 <td colspan="4">Всего товаров</td>
-                <td class="total-quantity"><?= $session['cart.totalQuantity'] ?> шт</td>
+                <td class="total-quantity">--- шт</td>
             </tr>
             <tr>
                 <td colspan="4">На сумму</td>
-                <td style="font-weight: 700"><?= $session['cart.totalPrice'] ?> рублей</td>
+                <td style="font-weight: 700">--- рублей</td>
             </tr>
             </tbody>
 
