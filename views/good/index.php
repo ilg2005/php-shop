@@ -19,7 +19,7 @@ use yii\helpers\Url;
                 <div class="container">
                     <div class="row justify-content-center">
                 <div class="product-buttons">
-                    <a href="#" type="button" class="product-button__add btn btn-lg btn-success mr-3 ">Заказать</a>
+                    <a href="#" data-name="<?= $good->link_name ?>" type="button" class="product-button__add btn btn-lg btn-success mr-3 ">Заказать</a>
                     <a href="<?= Url::home() ?>" type="button" class="product-button__more btn btn-primary btn-lg">Назад </a>
                 </div>
                     </div>

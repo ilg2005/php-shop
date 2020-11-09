@@ -1,3 +1,20 @@
+$('[data-toggle = modal]').on('click', function (e) {
+    e.preventDefault();
+
+    $.ajax( {
+        url: '/cart/index',
+        type: 'GET',
+        success: function (cartHtml) {
+            $('#cart .modal-content').html(cartHtml);
+        },
+        error: function () {
+            alert('Ошибка!');
+        }
+
+
+    })
+});
+
 $('.product-button__add').on('click', function (evt) {
     evt.preventDefault();
     let name = $(this).data('name');
