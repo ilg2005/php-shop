@@ -8,7 +8,8 @@ use yii\db\ActiveRecord;
 
 class Cart extends ActiveRecord
 {
-    public function addToCart($good) {
+    public function addToCart($good)
+    {
 
         if (isset($_SESSION['cart'][$good->id])) {
             ++$_SESSION['cart'][$good->id]['quantity'];
@@ -20,6 +21,8 @@ class Cart extends ActiveRecord
                 'quantity' => 1,
             ];
         }
+        $_SESSION['totalQuantity'] = isset($_SESSION['totalQuantity']) ? ++$_SESSION['totalQuantity'] : 1;
+        $_SESSION['totalPrice'] = isset($_SESSION['totalPrice']) ? $_SESSION['totalPrice'] + $_SESSION['cart'][$good->id]['price'] : $_SESSION['cart'][$good->id]['price'];
     }
 
 

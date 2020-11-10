@@ -15,7 +15,9 @@ class CartController extends Controller
     {
         $session = Yii::$app->session;
         $session->open();
-        //$session->remove('cart');
+       /* $session->remove('cart');
+        $session->remove('totalQuantity');
+        $session->remove('totalPrice');*/
         return $this->renderPartial('index', compact('session'));
     }
 
