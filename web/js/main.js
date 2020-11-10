@@ -1,3 +1,15 @@
+function emptyCart() {
+    $.ajax({
+        url: '/cart/empty',
+        type: 'GET',
+        success: function (cartHtml) {
+            $('#cart .modal-content').html(cartHtml);
+        },
+        error: function () {
+            alert('Ошибка!');
+        }
+    })
+}
 
 $('[data-toggle = modal]').on('click', function (e) {
     e.preventDefault();
@@ -14,6 +26,9 @@ $('[data-toggle = modal]').on('click', function (e) {
 
 
     })
+
+
+
 });
 
 $('.product-button__add').on('click', function (evt) {

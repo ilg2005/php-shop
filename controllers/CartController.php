@@ -31,4 +31,10 @@ class CartController extends Controller
         $cart->addToCart($good);
     }
 
+    public function actionEmpty() {
+        $session = Yii::$app->session;
+        $session->open();
+        $session->destroy();
+        return $this->renderPartial('index', compact('session'));
+    }
 }
