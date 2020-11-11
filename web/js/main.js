@@ -62,6 +62,19 @@ $('.modal-content').on('click', '.delete', function (evt) {
             $('.total-quantity').html(dataObj.totalQuantity);
             $('.total-price').html(dataObj.totalPrice);
             $('.menu-quantity').html(dataObj.totalQuantity);
+            if (dataObj.totalQuantity === 0) {
+                $.ajax({
+                    url: '/cart/empty',
+                    type: 'GET',
+                    success: function (cartHtml) {
+                        $('#cart .modal-content').html(cartHtml);
+                        $('.menu-quantity').html('0');
+                    },
+                    error: function () {
+                        alert('Ошибка!');
+                    }
+                })
+            }
         },
         error: function () {
             alert('Ошибка: товар не удален из корзины!');
