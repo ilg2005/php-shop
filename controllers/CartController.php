@@ -26,9 +26,11 @@ class CartController extends Controller
         $good = $model->getSpecificGood($name);
         $cart = new Cart();
         $cart->addToCart($good);
+        return $cart->totalQuantity;
     }
 
-    public function actionEmpty() {
+    public function actionEmpty()
+    {
         $session = Yii::$app->session;
         $session->open();
         $session->remove('cart');
