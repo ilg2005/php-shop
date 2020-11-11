@@ -4,7 +4,6 @@
 namespace app\models;
 
 
-use yii\caching\Cache;
 use yii\db\ActiveRecord;
 use Yii;
 

@@ -5,6 +5,7 @@ function emptyCart() {
             type: 'GET',
             success: function (cartHtml) {
                 $('#cart .modal-content').html(cartHtml);
+                $('.menu-quantity').html('0');
             },
             error: function () {
                 alert('Ошибка!');

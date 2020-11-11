@@ -26,7 +26,7 @@ class CartController extends Controller
         $good = $model->getSpecificGood($name);
         $cart = new Cart();
         $cart->addToCart($good);
-        return $cart->totalQuantity;
+        return $session['totalQuantity'];
     }
 
     public function actionRemove($id)
@@ -35,8 +35,8 @@ class CartController extends Controller
         $session->open();
         $cart = new Cart();
         $cart->removeFromCart($id);
-        $totalQuantity = $cart->totalQuantity;
-        $totalPrice = $cart->totalPrice;
+        $totalQuantity = $session['totalQuantity'];
+        $totalPrice = $session['totalPrice'];
         return json_encode(compact('totalQuantity', 'totalPrice'));
     }
 

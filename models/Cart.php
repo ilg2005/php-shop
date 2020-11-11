@@ -4,41 +4,50 @@
 namespace app\models;
 
 
+use Yii;
 use yii\db\ActiveRecord;
 
 class Cart extends ActiveRecord
 {
-    public $totalQuantity;
-    public $totalPrice;
 
     public function addToCart($good)
     {
+        $session = Yii::$app->session;
+        $session->open();
 
-        if (isset($_SESSION['cart'][$good->id])) {
-            ++$_SESSION['cart'][$good->id]['quantity'];
+        $cart = $session['cart'];
+
+        if (isset($cart[$good->id])) {
+            ++$cart[$good->id]['quantity'];
         } else {
-            $_SESSION['cart'][$good->id] = [
+            $cart[$good->id] = [
                 'name' => $good['name'],
                 'price' => $good['price'],
                 'img' => $good['img'],
                 'quantity' => 1,
             ];
         }
-        $_SESSION['totalQuantity'] = isset($_SESSION['totalQuantity']) ? ++$_SESSION['totalQuantity'] : 1;
-        $_SESSION['totalPrice'] = isset($_SESSION['totalPrice']) ? $_SESSION['totalPrice'] + $_SESSION['cart'][$good->id]['price'] : $_SESSION['cart'][$good->id]['price'];
-        $this->totalQuantity = $_SESSION['totalQuantity'];
-        $this->totalPrice = $_SESSION['totalPrice'];
+
+        $session['totalQuantity'] = isset($session['totalQuantity']) ? ++$session['totalQuantity'] : 1;
+        $session['totalPrice'] = isset($session['totalPrice']) ? $session['totalPrice'] + $cart[$good->id]['price'] : $cart[$good->id]['price'];
+
+        $session['cart'] = $cart;
+
     }
 
     public function removeFromCart($id)
     {
-        if (isset($_SESSION['cart'][$id])){
-            $_SESSION['totalQuantity'] -= $_SESSION['cart'][$id]['quantity'];
-            $_SESSION['totalPrice'] -= $_SESSION['cart'][$id]['price'];
-            $this->totalPrice = $_SESSION['totalPrice'];
-            $this->totalQuantity = $_SESSION['totalQuantity'];
-            unset($_SESSION['cart'][$id]);
+        $session = Yii::$app->session;
+        $session->open();
+
+        $cart = $session['cart'];
+
+        if (isset($cart[$id])){
+            $session['totalQuantity'] -= $cart[$id]['quantity'];
+            $session['totalPrice'] -= $cart[$id]['price'] * $cart[$id]['quantity'];
+            unset($cart[$id]);
         }
+        $session['cart'] = $cart;
     }
 
 }

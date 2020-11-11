@@ -15,7 +15,7 @@ class GoodController extends Controller
         $session->open();
         $model = new Good();
         $good = $model->getSpecificGood($name);
-        return $this->render('index', compact('good'));
+        return $this->render('index', compact('good', 'session'));
     }
 
 }

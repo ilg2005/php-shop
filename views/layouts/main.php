@@ -9,6 +9,8 @@ use app\assets\AppAsset;
 use yii\helpers\Url;
 
 AppAsset::register($this);
+$session = Yii::$app->session;
+$session->open();
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -29,7 +31,7 @@ AppAsset::register($this);
             <div class="header">
                 <a href="/">На главную</a>
                 <a href="#">Вход в админку</a>
-                <a href="#" data-toggle="modal" data-target="#cart">Корзина (<span class="menu-quantity"><?= $session['totalQuantity'] = isset($session['totalQuantity']) ?: 0 ?></span>)</a>
+                <a href="#" data-toggle="modal" data-target="#cart">Корзина (<span class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
                 <form action="<?= Url::to(['category/index']) ?>" method="get">
                     <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
                 </form>

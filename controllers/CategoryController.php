@@ -26,7 +26,7 @@ class CategoryController extends Controller
             $goods = $model->getSearchResults($search);
         }
 
-        return $this->render('index', compact('goods', 'search'));
+        return $this->render('index', compact('goods', 'search', 'session'));
     }
 
 }
