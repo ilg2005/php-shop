@@ -42,12 +42,10 @@ $('.product-button__add').on('click', function (evt) {
         type: 'GET',
         success: function (totalQuantity) {
             alert('Товар добавлен в корзину!');
-            $('#total-quantity').html(totalQuantity);
+            $('.menu-quantity').html(totalQuantity);
         },
         error: function () {
             alert('Ошибка: товар не добавлен в корзину!');
         }
-
-
     })
 });
