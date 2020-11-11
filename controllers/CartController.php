@@ -29,6 +29,17 @@ class CartController extends Controller
         return $cart->totalQuantity;
     }
 
+    public function actionRemove($id)
+    {
+        $session = Yii::$app->session;
+        $session->open();
+        $cart = new Cart();
+        $cart->removeFromCart($id);
+        $totalQuantity = $cart->totalQuantity;
+        $totalPrice = $cart->totalPrice;
+        return json_encode(compact('totalQuantity', 'totalPrice'));
+    }
+
     public function actionEmpty()
     {
         $session = Yii::$app->session;

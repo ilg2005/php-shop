@@ -30,5 +30,15 @@ class Cart extends ActiveRecord
         $this->totalPrice = $_SESSION['totalPrice'];
     }
 
+    public function removeFromCart($id)
+    {
+        if (isset($_SESSION['cart'][$id])){
+            $_SESSION['totalQuantity'] -= $_SESSION['cart'][$id]['quantity'];
+            $_SESSION['totalPrice'] -= $_SESSION['cart'][$id]['price'];
+            $this->totalPrice = $_SESSION['totalPrice'];
+            $this->totalQuantity = $_SESSION['totalQuantity'];
+            unset($_SESSION['cart'][$id]);
+        }
+    }
 
 }

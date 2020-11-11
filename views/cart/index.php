@@ -24,23 +24,23 @@
 
             <tbody>
             <?php foreach ($session['cart'] as $id => $good): ?>
-                <tr>
+                <tr data-id="<?= $id ?>">
                     <td style="vertical-align: middle" width="150"><img src="/img/<?= $good['img'] ?>"
                                                                         alt="Изображение <?= $good['name'] ?>"></td>
                     <td style="vertical-align: middle"><?= $good['name'] ?></td>
                     <td style="vertical-align: middle"><?= $good['quantity'] ?> шт</td>
                     <td style="vertical-align: middle"><?= $good['price'] * $good['quantity'] ?> рублей</td>
-                    <td class="delete" style="text-align: center; cursor: pointer; vertical-align: middle; color: red">
+                    <td class="delete" style="text-align: center; cursor: pointer; vertical-align: middle; color: red;">
                         <span>&#10006;</span></td>
                 </tr>
             <?php endforeach; ?>
             <tr style="border-top: 4px solid black">
                 <td colspan="4">Всего товаров</td>
-                <td class="total-quantity"><?= $session['totalQuantity'] ?> шт</td>
+                <td class="text-center"><span class="total-quantity"><?= $session['totalQuantity'] ?></span> шт</td>
             </tr>
             <tr>
                 <td colspan="4">На сумму</td>
-                <td style="font-weight: 700"><?= $session['totalPrice'] ?> рублей</td>
+                <td class="" style="font-weight: 700"><span class="total-price"><?= $session['totalPrice'] ?></span> рублей</td>
             </tr>
             </tbody>
 

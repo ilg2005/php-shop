@@ -14,6 +14,8 @@ class CategoryController extends Controller
 
     public function actionIndex($catName = '')
     {
+        $session = Yii::$app->session;
+        $session->open();
         $model = new Good();
         $goods = $model->getAllGoods();
         $search = Yii::$app->request->get('search');
