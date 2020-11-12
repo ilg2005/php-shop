@@ -1,6 +1,7 @@
 <?php
 
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
 ?>
 <div class="modal-header border-0">
@@ -20,6 +21,6 @@ use yii\bootstrap\ActiveForm;
 </div>
 
 <div class="modal-footer modal-buttons justify-content-around border-0 mb-3">
-    <button type="submit" class="btn btn-success">Оформить заказ</button>
+    <?= Html::submitButton('Оформить заказ', ['class' => 'btn btn-success']) ?>
 </div>
 <?php ActiveForm::end(); ?>
