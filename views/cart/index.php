@@ -52,7 +52,7 @@
     <?php if (!isset($session['cart'])) : ?>
         <button type="button" class="btn btn-primary" data-dismiss="modal">Начать покупки</button>
     <?php else : ?>
-        <button type="button" class="btn btn-danger" onclick="emptyCart()">Очистить корзину</button>
+        <button id="empty" type="button" class="btn btn-danger">Очистить корзину</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Продолжить покупки</button>
         <button type="button" class="btn btn-success btn-next">Оформить заказ</button>
     <?php endif; ?>

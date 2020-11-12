@@ -31,7 +31,7 @@ $session->open();
             <div class="header">
                 <a href="/">На главную</a>
                 <a href="#">Вход в админку</a>
-                <a href="#" data-toggle="modal" data-target="#cart">Корзина (<span class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
+                <a href="#" data-toggle="modal" data-target="#modal">Корзина (<span class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
                 <form action="<?= Url::to(['category/index']) ?>" method="get">
                     <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
                 </form>
@@ -52,7 +52,7 @@ $session->open();
 </section>
 
 <!-- Modal -->
-<div class="modal fade" id="cart" tabindex="-1" aria-labelledby="cartLabel" aria-hidden="true">
+<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content"></div>
     </div>

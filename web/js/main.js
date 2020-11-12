@@ -1,18 +1,26 @@
+const modalContentElement = $('#modal .modal-content');
+
 function emptyCart() {
-    if (confirm('Точно очистить корзину?')) {
         $.ajax({
             url: '/cart/empty',
             type: 'GET',
             success: function (cartHtml) {
-                $('#cart .modal-content').html(cartHtml);
+                modalContentElement.html(cartHtml);
                 $('.menu-quantity').html('0');
             },
             error: function () {
                 alert('Ошибка!');
             }
         })
-    }
 }
+
+modalContentElement.on('click', '#empty', function (evt) {
+    evt.preventDefault();
+    if (confirm('Точно очистить корзину?')) {
+        emptyCart();
+    }
+});
+
 
 $('[data-toggle = modal]').on('click', function (e) {
     e.preventDefault();
@@ -21,7 +29,7 @@ $('[data-toggle = modal]').on('click', function (e) {
         url: '/cart/index',
         type: 'GET',
         success: function (cartHtml) {
-            $('#cart .modal-content').html(cartHtml);
+            modalContentElement.html(cartHtml);
         },
         error: function () {
             alert('Ошибка!');
@@ -47,7 +55,7 @@ $('.product-button__add').on('click', function (evt) {
     })
 });
 
-$('.modal-content').on('click', '.delete', function (evt) {
+modalContentElement.on('click', '.delete', function (evt) {
     evt.preventDefault();
     let tr = $(this.parentElement);
     let id = tr.data('id');
@@ -63,17 +71,7 @@ $('.modal-content').on('click', '.delete', function (evt) {
             $('.total-price').html(dataObj.totalPrice);
             $('.menu-quantity').html(dataObj.totalQuantity);
             if (dataObj.totalQuantity === 0) {
-                $.ajax({
-                    url: '/cart/empty',
-                    type: 'GET',
-                    success: function (cartHtml) {
-                        $('#cart .modal-content').html(cartHtml);
-                        $('.menu-quantity').html('0');
-                    },
-                    error: function () {
-                        alert('Ошибка!');
-                    }
-                })
+                emptyCart();
             }
         },
         error: function () {
