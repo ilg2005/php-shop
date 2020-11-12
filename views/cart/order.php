@@ -12,7 +12,10 @@ use yii\helpers\Html;
 </div>
 
 <div class="modal-body">
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'method' => 'post',
+        'action' => ['/cart/order'],
+    ]); ?>
     <?= $form->field($model, 'name') ?>
     <?= $form->field($model, 'email') ?>
     <?= $form->field($model, 'phone') ?>
