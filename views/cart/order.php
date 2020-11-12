@@ -13,10 +13,10 @@ use yii\helpers\Html;
 
 <div class="modal-body">
     <?php $form = ActiveForm::begin(); ?>
-    <?= $form->field($order, 'name') ?>
-    <?= $form->field($order, 'email') ?>
-    <?= $form->field($order, 'phone') ?>
-    <?= $form->field($order, 'address') ?>
+    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'email') ?>
+    <?= $form->field($model, 'phone') ?>
+    <?= $form->field($model, 'address') ?>
 
 </div>
 

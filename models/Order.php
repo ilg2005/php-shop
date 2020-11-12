@@ -24,13 +24,5 @@ class Order extends ActiveRecord
         ];
     }
 
-       public function attributeLabels()
-    {
-        return [
-            'name' => 'Имя',
-            'email' => 'E-mail',
-            'phone' => 'Телефон',
-            'address' => 'Адрес',
-        ];
-    }
+
 }
