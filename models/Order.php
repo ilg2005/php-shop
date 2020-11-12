@@ -18,11 +18,8 @@ class Order extends ActiveRecord
     public function rules()
     {
         return [
-            [['date', 'name', 'email', 'phone', 'address', 'sum'], 'required'],
-            [['date'], 'safe'],
+            [['name', 'email', 'phone', 'address'], 'required'],
             [['email'], 'email'],
-            [['sum'], 'integer'],
-            [['status'], 'string'],
             [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
         ];
     }
@@ -30,14 +27,10 @@ class Order extends ActiveRecord
        public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'date' => 'Дата',
             'name' => 'Имя',
-            'email' => 'Email',
+            'email' => 'E-mail',
             'phone' => 'Телефон',
             'address' => 'Адрес',
-            'sum' => 'Сумма',
-            'status' => 'Статус',
         ];
     }
 }

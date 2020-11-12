@@ -25,16 +25,4 @@ class OrderGood extends ActiveRecord
     }
 
 
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'order_id' => 'Order ID',
-            'product_id' => 'Product ID',
-            'name' => 'Name',
-            'price' => 'Price',
-            'quantity' => 'Quantity',
-            'sum' => 'Sum',
-        ];
-    }
 }
