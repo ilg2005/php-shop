@@ -4,8 +4,8 @@ function emptyCart() {
         $.ajax({
             url: '/cart/empty',
             type: 'GET',
-            success: function (cartHtml) {
-                modalContentElement.html(cartHtml);
+            success: function (cartIndexView) {
+                modalContentElement.html(cartIndexView);
                 $('.menu-quantity').html('0');
             },
             error: function () {
@@ -28,8 +28,8 @@ $('[data-toggle = modal]').on('click', function (e) {
     $.ajax({
         url: '/cart/index',
         type: 'GET',
-        success: function (cartHtml) {
-            modalContentElement.html(cartHtml);
+        success: function (cartIndexView) {
+            modalContentElement.html(cartIndexView);
         },
         error: function () {
             alert('Ошибка!');
@@ -64,13 +64,13 @@ modalContentElement.on('click', '.delete', function (evt) {
         url: '/cart/remove',
         data: {id: id},
         type: 'GET',
-        success: function (data) {
+        success: function (recalculation) {
             $(tr).remove();
-            let dataObj = JSON.parse(data);
-            $('.total-quantity').html(dataObj.totalQuantity);
-            $('.total-price').html(dataObj.totalPrice);
-            $('.menu-quantity').html(dataObj.totalQuantity);
-            if (dataObj.totalQuantity === 0) {
+            let recalcObj = JSON.parse(recalculation);
+            $('.total-quantity').html(recalcObj.totalQuantity);
+            $('.total-price').html(recalcObj.totalPrice);
+            $('.menu-quantity').html(recalcObj.totalQuantity);
+            if (recalcObj.totalQuantity === 0) {
                 emptyCart();
             }
         },
@@ -78,4 +78,20 @@ modalContentElement.on('click', '.delete', function (evt) {
             alert('Ошибка: товар не удален из корзины!');
         }
     })
+});
+
+modalContentElement.on('click', '#order', function (evt) {
+    evt.preventDefault();
+    $.ajax({
+        url: '/cart/order',
+        type: 'POST',
+        success: function (cartOrderView) {
+            modalContentElement.html(cartOrderView);
+            $('.menu-quantity').html('0');
+        },
+        error: function () {
+            alert('Ошибка: заказ не отправлен!');
+        }
+    })
+
 });

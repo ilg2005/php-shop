@@ -50,4 +50,5 @@ class Cart extends ActiveRecord
         $session['cart'] = $cart;
     }
 
+
 }
