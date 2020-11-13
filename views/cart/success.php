@@ -14,5 +14,5 @@ use yii\helpers\Html;
     </ul>
     <p>Наш менеджер свяжется с Вами в ближайшее время для подтверждения заказа.</p>
     <hr>
-    <p class="mb-0">Номер вашего заказа <?= $order->id ?> на общую сумму <?= $order->sum ?> руб.</p>
+    <p class="mb-0">Номер вашего заказа <strong><?= $order->id ?></strong> на общую сумму <strong><?= $order->sum ?></strong> руб.</p>
 </div>
