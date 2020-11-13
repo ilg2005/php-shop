@@ -70,7 +70,7 @@ class CartController extends Controller
                 $session->remove('cart');
                 $session->remove('totalQuantity');
                 $session->remove('totalPrice');
-                return $this->render('success', compact('session', 'model'));
+                return $this->render('success', compact('session', 'order'));
             }
         }
         $this->layout = 'empty';
