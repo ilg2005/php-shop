@@ -1,5 +1,9 @@
 const modalContentElement = $('#modalCart .modal-content');
 
+function goHome() {
+    window.location.href = '/';
+}
+
 function emptyCart() {
         $.ajax({
             url: '/cart/empty',

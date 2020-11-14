@@ -9,21 +9,20 @@ use yii\bootstrap\ActiveForm;
 
     <?php
     $this->registerJs(
-        "$('#orderSuccess').modal('show');
-        $('.menu-quantity').html('0');",
+        "$('#orderSuccess').modal('show');",
         yii\web\View::POS_READY
     );
     ?>
 
     <!-- OrderSuccess Modal -->
 
-    <div class="modal fade" id="orderSuccess" tabindex="-1" role="dialog" aria-labelledby="orderSuccessLabel">
+    <div class="modal fade" id="orderSuccess" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="orderSuccessLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
 
                 <div class="modal-header border-0 alert-success">
                     <h3 class="alert-heading" id="cartLabel">Заявка успешно отправлена!</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="goHome()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
