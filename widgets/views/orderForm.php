@@ -9,7 +9,8 @@ use yii\bootstrap\ActiveForm;
 
     <?php
     $this->registerJs(
-        "$('#orderSuccess').modal('show');",
+        "$('.menu-quantity').html('0');
+        $('#orderSuccess').modal('show');",
         yii\web\View::POS_READY
     );
     ?>
