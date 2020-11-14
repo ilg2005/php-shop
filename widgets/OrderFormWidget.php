@@ -27,8 +27,8 @@ class OrderFormWidget extends Widget
             $order->date = date('Y-m-d H:i:s');
             $order->sum = $session['totalPrice'];
             if ($order->save()) {
-                Yii::$app->mailer->compose()
-                    ->setFrom(['test@mail.ru' => 'Доставка суши'])
+                Yii::$app->mailer->compose('order-mail', ['session' => $session, 'order' => $order, 'model' => $model])
+                    ->setFrom(['igor_test_2020@mail.ru' => 'Доставка суши'])
                     ->setTo($model->email)
                     ->setSubject('Заказ суши оформлен')
                     ->send();
