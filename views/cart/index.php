@@ -54,7 +54,7 @@
     <?php else : ?>
         <button id="empty" type="button" class="btn btn-danger">Очистить корзину</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Продолжить покупки</button>
-        <button id="order" type="button" class="btn btn-success btn-next">Оформить заказ</button>
+        <button id="order" data-toggle="modal" data-target="#orderModal" type="button" class="btn btn-success btn-next">Оформить заказ</button>
     <?php endif; ?>
 </div>
 

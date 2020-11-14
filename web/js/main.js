@@ -1,4 +1,4 @@
-const modalContentElement = $('#modal .modal-content');
+const modalContentElement = $('#modalCart .modal-content');
 
 function emptyCart() {
         $.ajax({
@@ -30,7 +30,7 @@ $('[data-toggle = modal]').on('click', function (e) {
         type: 'GET',
         success: function (cartIndexView) {
             modalContentElement.html(cartIndexView);
-            $('.modal-dialog').addClass('modal-lg');
+            $('#modalCart .modal-dialog').addClass('modal-lg');
         },
         error: function () {
             alert('Ошибка!');
@@ -83,16 +83,16 @@ modalContentElement.on('click', '.delete', function (evt) {
 
 modalContentElement.on('click', '#order', function (evt) {
     evt.preventDefault();
-    $.ajax({
+    $('#modalCart').modal('hide');
+    /*$.ajax({
         url: '/cart/order',
         type: 'GET',
         success: function (cartOrderView) {
             modalContentElement.html(cartOrderView);
-            $('.modal-lg').removeClass('modal-lg');
         },
         error: function () {
             alert('Ошибка: заказ не отправлен!');
         }
-    })
+    })*/
 
 });

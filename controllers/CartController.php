@@ -5,9 +5,6 @@ namespace app\controllers;
 
 
 use app\models\Good;
-use app\models\Order;
-use app\models\OrderForm;
-use app\models\OrderGood;
 use yii\web\Controller;
 use app\models\Cart;
 use Yii;
@@ -53,27 +50,4 @@ class CartController extends Controller
         return $this->renderPartial('index', compact('session'));
     }
 
-    public function actionOrder()
-    {
-        $session = Yii::$app->session;
-        $session->open();
-        $order = new Order();
-        $model = new OrderForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $order->name = $model->name;
-            $order->email = $model->email;
-            $order->phone = $model->phone;
-            $order->address = $model->address;
-            $order->date = date('Y-m-d H:i:s');
-            $order->sum = $session['totalPrice'];
-            if ($order->save()) {
-                $session->remove('cart');
-                $session->remove('totalQuantity');
-                $session->remove('totalPrice');
-                return $this->render('success', compact('session', 'order', 'model'));
-            }
-        }
-        $this->layout = 'empty';
-        return $this->render('order', compact('session', 'model', 'order'));
-    }
 }

@@ -4,6 +4,7 @@
 
 /* @var $content string */
 
+use app\widgets\OrderFormWidget;
 use yii\helpers\Html;
 use app\assets\AppAsset;
 use yii\helpers\Url;
@@ -31,7 +32,7 @@ $session->open();
             <div class="header">
                 <a href="/">На главную</a>
                 <a href="#">Вход в админку</a>
-                <a href="#" data-toggle="modal" data-target="#modal">Корзина (<span class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
+                <a href="#" data-toggle="modal" data-target="#modalCart">Корзина (<span class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
                 <form action="<?= Url::to(['category/index']) ?>" method="get">
                     <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
                 </form>
@@ -52,12 +53,13 @@ $session->open();
 </section>
 
 <!-- Modal -->
-<div class="modal fade" id="modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+<div class="modal fade" id="modalCart" data-keyboard="false" tabindex="-1" aria-labelledby="modalCartLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content"></div>
     </div>
 </div>
 
+<?= OrderFormWidget::widget([]) ?>
 
 <?php $this->endBody() ?>
 </body>
