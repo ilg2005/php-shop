@@ -15,9 +15,11 @@ class OrderFormWidget extends Widget
     {
         $session = Yii::$app->session;
         $session->open();
+
         $order = new Order();
         $model = new OrderForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+        if ($session['totalPrice'] && $model->load(Yii::$app->request->post()) && $model->validate()) {
             $order->name = $model->name;
             $order->email = $model->email;
             $order->phone = $model->phone;
