@@ -27,7 +27,7 @@
         </tr>
         <tr>
             <td colspan="2">На сумму:</td>
-            <td class="" style="font-weight: 700"><span class="total-price"><?= $session['totalPrice'] ?></span> рублей
+            <td style="font-weight: 700"><span class="total-price"><?= $session['totalPrice'] ?></span> рублей
             </td>
         </tr>
         </tbody>
