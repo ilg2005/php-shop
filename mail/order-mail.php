@@ -1,4 +1,4 @@
-<p><?= $model->phone ?>, спасибо за заказ!</p>
+<p><?= $model->name ?>, спасибо за заказ!</p>
 <p id="yourOrder">Номер Вашего заказа: <strong><?= $order->id ?></strong>. Вы заказали:</p>
 <div class="table-responsive">
     <table style="border-collapse: collapse;" aria-describedby="yourOrder">
