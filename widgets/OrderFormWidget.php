@@ -30,7 +30,7 @@ class OrderFormWidget extends Widget
                 Yii::$app->mailer->compose('order-mail', ['session' => $session, 'order' => $order, 'model' => $model])
                     ->setFrom(['igor_test_2020@mail.ru' => 'Доставка суши'])
                     ->setTo($model->email)
-                    ->setSubject('Заказ суши оформлен')
+                    ->setSubject('Заказ суши получен')
                     ->send();
 
                 $session->remove('cart');

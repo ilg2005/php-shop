@@ -29,9 +29,9 @@ use yii\bootstrap\ActiveForm;
                 </div>
 
                 <div class="modal-body alert-success">
-                    <p>Спасибо, <?= $model->name ?>!</p>
+                    <p><?= $model->name ?>, спасибо за заказ!</p>
                     <p>Наш менеджер свяжется с Вами в ближайшее время по телефону <strong><?= $model->phone ?></strong>
-                        для подтверждения заказа.</p>
+                        для согласования доставки.</p>
                     <hr>
                     <p class="mb-0">Номер вашего заказа: <strong><?= $order->id ?></strong>, общая сумма:
                         <strong><?= $order->sum ?></strong> руб.</p>
