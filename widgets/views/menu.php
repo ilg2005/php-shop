@@ -6,7 +6,7 @@ use yii\widgets\Menu;
 $items[] = [ 'label' => 'Всё меню', 'url' => '/' ];
 
 foreach ($categories as $category) {
-    $items[] = ['label' => $category->browser_name, 'url' => Url::to(['category/index', 'catName' => $category->cat_name])];
+    $items[] = ['label' => $category->browser_name, 'url' => [Url::to(['category/index', 'catName' => $category->cat_name])]];
       }
 
 echo Menu::widget([
