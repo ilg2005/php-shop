@@ -3,7 +3,7 @@
 use yii\helpers\Url;
 use yii\widgets\Menu;
 
-$items[] = [ 'label' => 'Всё меню', 'url' => '/category/index' ];
+$items[] = [ 'label' => 'Всё меню', 'url' => '/' ];
 
 foreach ($categories as $category) {
     $items[] = ['label' => $category->browser_name, 'url' => Url::to(['category/index', 'catName' => $category->cat_name])];
@@ -12,7 +12,8 @@ foreach ($categories as $category) {
 echo Menu::widget([
     'options' => ['class' => 'nav nav-menu'],
     'items' => $items,
-    'activeCssClass' => 'active',
+    'activeCssClass'=>'active',
+
 ]);
 $currentUrl = Yii::$app->request->url;
 
