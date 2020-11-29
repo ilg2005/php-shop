@@ -24,6 +24,7 @@
         <tr style="border-top: 2px solid black">
             <td>Всего товаров:</td>
             <td style="text-align: center;"><span class="total-quantity"><?= $session['totalQuantity'] ?></span> шт</td>
+            <td></td>
         </tr>
         <tr>
             <td colspan="2">На сумму:</td>

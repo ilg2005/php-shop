@@ -39,7 +39,7 @@ $config = [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.mail.ru',
                 'username' => 'igor_test_2020@mail.ru',
-                'password' => '*********',
+                'password' => 'test_12345_new',
                 'port' => '465',
                 'encryption' => 'ssl',
             ],
