@@ -9,7 +9,7 @@ foreach ($categories as $category) {
     $items[] = ['label' => $category->browser_name, 'url' => Url::to(['category/index', 'catName' => $category->cat_name])];
       }
 
-Menu::widget([
+echo Menu::widget([
     'options' => ['class' => 'nav nav-menu'],
     'items' => $items,
     'activeCssClass' => 'active',
