@@ -25,6 +25,7 @@ class Order extends ActiveRecord
             [['name', 'email', 'phone', 'address'], 'required'],
             [['email'], 'email'],
             [['name', 'email', 'phone', 'address'], 'string', 'max' => 255],
+            [['status'], 'string'],
         ];
     }
 
