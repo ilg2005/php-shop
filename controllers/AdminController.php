@@ -17,6 +17,9 @@ class AdminController extends Controller
     /**
      * {@inheritdoc}
      */
+
+    public $layout = 'admin-main';
+
     public function behaviors()
     {
         return [
@@ -38,8 +41,6 @@ class AdminController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Order::find(),
         ]);
-
-        $this->layout = 'admin-main';
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
