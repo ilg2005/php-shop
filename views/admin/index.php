@@ -30,7 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'phone',
             'address',
             'sum',
-            'status',
+            ['attribute' => 'status',
+            'value' => function($info) {
+                return $info->status === 'Новый' ? "<div style='color: red'>$info->status</div>" : "<div style='color: green'>$info->status</div>";
+            },
+            'format' => 'raw'],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
