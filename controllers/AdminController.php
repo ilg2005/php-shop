@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\OrderGood;
 use Yii;
 use app\models\Order;
 use yii\data\ActiveDataProvider;
@@ -55,8 +56,12 @@ class AdminController extends Controller
      */
     public function actionView($id)
     {
+        $order = $this->findModel($id);
+        $goods = OrderGood::find()->where(['order_id' => $id])->all();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'order' => $order,
+            'goods' => $goods,
         ]);
     }
 
