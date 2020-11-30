@@ -4,12 +4,12 @@
 
 /* @var $content string */
 
+use app\assets\AdminAppAsset;
 use app\widgets\OrderFormWidget;
 use yii\helpers\Html;
-use app\assets\AppAsset;
 use yii\helpers\Url;
 
-AppAsset::register($this);
+AdminAppAsset::register($this);
 $session = Yii::$app->session;
 $session->open();
 ?>
@@ -52,14 +52,6 @@ $session->open();
     </footer>
 </section>
 
-<!-- Modal -->
-<div class="modal fade" id="modalCart" data-keyboard="false" tabindex="-1" aria-labelledby="modalCartLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content"></div>
-    </div>
-</div>
-
-<?= OrderFormWidget::widget([]) ?>
 
 <?php $this->endBody() ?>
 </body>
