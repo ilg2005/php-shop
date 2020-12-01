@@ -31,8 +31,17 @@ $session->open();
         <div class="container">
             <div class="header">
                 <a href="/">На главную</a>
-                <a href="/admin">Вход в админку</a>
-                <a href="#" data-toggle="modal" data-target="#modalCart">Корзина (<span class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
+                <?php if (Yii::$app->user->isGuest) : ?>
+                <div class="row header">
+                    <a class="mr-2" href="/admin">Вход</a>
+                    /
+                    <a class="ml-2" href="/signup" >Регистрация</a>
+                </div>
+                <?php else : ?>
+                    <a href="/">Выход</a>
+                <?php endif; ?>
+                <a href="#" data-toggle="modal" data-target="#modalCart">Корзина (<span
+                            class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
                 <form action="<?= Url::to(['category/index']) ?>" method="get">
                     <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
                 </form>
@@ -53,7 +62,8 @@ $session->open();
 </section>
 
 <!-- Modal -->
-<div class="modal fade" id="modalCart" data-keyboard="false" tabindex="-1" aria-labelledby="modalCartLabel" aria-hidden="true">
+<div class="modal fade" id="modalCart" data-keyboard="false" tabindex="-1" aria-labelledby="modalCartLabel"
+     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content"></div>
     </div>
