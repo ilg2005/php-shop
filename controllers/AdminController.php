@@ -10,15 +10,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-/**
- * AdminController implements the CRUD actions for Order model.
- */
 class AdminController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
-
     public $layout = 'admin-main';
 
     public function behaviors()
@@ -33,10 +26,6 @@ class AdminController extends Controller
         ];
     }
 
-    /**
-     * Lists all Order models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
@@ -48,12 +37,6 @@ class AdminController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Order model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         $order = $this->findModel($id);
@@ -65,31 +48,7 @@ class AdminController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Order model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Order();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Updates an existing Order model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -103,13 +62,6 @@ class AdminController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Order model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -117,13 +69,6 @@ class AdminController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Order model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Order the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Order::findOne($id)) !== null) {
