@@ -15,6 +15,32 @@ class AdminController extends Controller
 {
     public $layout = 'admin-main';
 
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'view', 'update', 'delete'],
+                        'matchCallback' => function () {
+                            return Yii::$app->user->identity->is_admin;
+                        }
+                    ],
+                ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'index' => ['post', 'get'],
+                    'view' => ['post', 'get'],
+                    'update' => ['post', 'get'],
+                    'delete' => ['post', 'get'],
+                ],
+            ],
+        ];
+    }
 
     public function actionIndex()
     {
