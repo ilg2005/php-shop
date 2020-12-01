@@ -30,21 +30,22 @@ $session->open();
     <header>
         <div class="container">
             <div class="header">
-                <a href="/">На главную</a>
-                <?php if (Yii::$app->user->isGuest) : ?>
-                <div class="row header">
-                    <a class="mr-2" href="/site/login">Вход</a>
-                    /
-                    <a class="ml-2" href="/site/signup" >Регистрация</a>
-                </div>
-                <?php else : ?>
-                    <a href="/site/logout">Выход</a>
-                <?php endif; ?>
-                <a href="#" data-toggle="modal" data-target="#modalCart">Корзина (<span
-                            class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
                 <form action="<?= Url::to(['category/index']) ?>" method="get">
                     <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
                 </form>
+                <?= Yii::$app->user->identity->is_admin ? '<a href="/admin">Админка</a>' : '<a href="/">На главную</a>'?>
+
+                <a href="#" data-toggle="modal" data-target="#modalCart">Корзина (<span
+                            class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
+                <?php if (Yii::$app->user->isGuest) : ?>
+                    <div class="row header">
+                        <a class="mr-2" href="/site/login">Вход</a>
+                        /
+                        <a class="ml-2" href="/site/signup" >Регистрация</a>
+                    </div>
+                <?php else : ?>
+                    <a href="/site/logout">Выход</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
