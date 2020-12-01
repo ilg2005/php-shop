@@ -33,12 +33,12 @@ $session->open();
                 <a href="/">На главную</a>
                 <?php if (Yii::$app->user->isGuest) : ?>
                 <div class="row header">
-                    <a class="mr-2" href="/admin">Вход</a>
+                    <a class="mr-2" href="/site/login">Вход</a>
                     /
-                    <a class="ml-2" href="/signup" >Регистрация</a>
+                    <a class="ml-2" href="/site/signup" >Регистрация</a>
                 </div>
                 <?php else : ?>
-                    <a href="/">Выход</a>
+                    <a href="/site/logout">Выход</a>
                 <?php endif; ?>
                 <a href="#" data-toggle="modal" data-target="#modalCart">Корзина (<span
                             class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>

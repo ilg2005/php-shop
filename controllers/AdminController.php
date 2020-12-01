@@ -6,6 +6,7 @@ use app\models\OrderGood;
 use Yii;
 use app\models\Order;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -14,17 +15,6 @@ class AdminController extends Controller
 {
     public $layout = 'admin-main';
 
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
 
     public function actionIndex()
     {

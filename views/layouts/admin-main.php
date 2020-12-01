@@ -31,7 +31,7 @@ $session->open();
         <div class="container">
             <div class="header">
                 <a href="/">На главную</a>
-                <a href="/logout">Выход</a>
+                <a href="/site/logout">Выход</a>
                 <form action="<?= Url::to(['category/index']) ?>" method="get">
                     <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
                 </form>
