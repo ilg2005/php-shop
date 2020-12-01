@@ -19,21 +19,42 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'date',
-            'name',
-            'email:email',
-            'phone',
-            'address',
-            'sum',
-            ['attribute' => 'status',
-            'value' => function($info) {
-                return $info->status === 'Новый' ? "<div style='color: red'>$info->status</div>" : "<div style='color: green'>$info->status</div>";
-            },
-            'format' => 'raw'],
+            [
+                'attribute' => 'date',
+                'label' => 'Дата заказа'
+            ],
+            [
+                'attribute' => 'name',
+                'label' => 'Имя'
+            ],
+            [
+                'attribute' => 'email',
+                'label' => 'E-mail'
+            ],
+            [
+                'attribute' => 'phone',
+                'label' => 'Телефон'
+            ],
+            [
+                'attribute' => 'address',
+                'label' => 'Адрес'
+            ],
+            [
+                'attribute' => 'sum',
+                'label' => 'Сумма'
+            ],
+            [
+                'attribute' => 'status',
+                'label' => 'Статус',
+                'value' => function ($info) {
+                    return $info->status === 'Новый' ? "<div style='color: red'>$info->status</div>" : "<div style='color: green'>$info->status</div>";
+                },
+                'format' => 'raw'
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]) ?>
 
 
 </div>
