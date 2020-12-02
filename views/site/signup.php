@@ -5,63 +5,55 @@
 $this->title = 'Регистрация';
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 ?>
 
-<main class="page-main">
-    <div class="main-container page-container">
-        <section class="registration__user">
-            <h1>Регистрация аккаунта</h1>
-            <div class="registration-wrapper">
+<main class="site-login"">
+<div class="container">
+    <section class="registration__user">
+        <h1>Регистрация аккаунта</h1>
+        <div class="registration-wrapper">
 
-                <?php $form = ActiveForm::begin([
-                    'id' => 'signup',
-                    'options' => [
-                        'class' => 'registration__user-form form-create'
-                    ],
-                    'fieldConfig' => [
-                        'template' => '<p>{label}</p><div>{input}</div><span>{hint}</span><span>{error}</span><br>',
-                        'inputOptions' => [
-                            'class' => 'input textarea',
-                            'style' => ['width' => '330px'],
-                        ],
-                        'errorOptions' => [
-                            'class' => 'text-danger'
-                        ],
-                    ],
-                ]); ?>
+            <?php $form = ActiveForm::begin([
+                'id' => 'signup',
+                'layout' => 'horizontal',
 
-                <?= $form->field($model, 'email', ['enableAjaxValidation' => 'true'])
-                    ->label('Электронная почта')
-                    ->input('email', [
-                        'placeholder' => 'example@gmail.com',
-                    ])
-                    ->hint('Введите валидный адрес электронной почты')
-                ?>
+                'fieldConfig' => [
+                    'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                    'labelOptions' => ['class' => 'col-lg-1 control-label'],
+                ],
+            ]); ?>
 
-                <?= $form->field($model, 'username')
-                    ->label('Логин')
-                    ->textInput([
-                        'placeholder' => 'username',
-                    ])
-                    ->hint('Имя для регистрации')
-                ?>
+            <?= $form->field($model, 'email', ['enableAjaxValidation' => 'true'])
+                ->label('E-mail')
+                ->input('email', [
+                    'placeholder' => 'example@gmail.com',
+                ])
+            ?>
+
+            <?= $form->field($model, 'username')
+                ->label('Логин')
+                ->textInput([
+                    'placeholder' => 'username',
+                ])
+            ?>
 
 
-                <?= $form->field($model, 'password')
-                    ->label('Пароль')
-                    ->passwordInput()
-                    ->hint('Длина пароля от 8 символов')
-                ?>
+            <?= $form->field($model, 'password')
+                ->label('Пароль')
+                ->passwordInput()
+            ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Cоздать аккаунт', ['class' => 'button button__registration']) ?>
+            <div class="form-group">
+                <div class="col-lg-offset-1 col-lg-11">
+                    <?= Html::submitButton('Cоздать аккаунт', ['class' => 'btn btn-primary']) ?>
                 </div>
-
-                <?php ActiveForm::end(); ?>
             </div>
-        </section>
 
-    </div>
+            <?php ActiveForm::end(); ?>
+        </div>
+    </section>
+
+</div>
 </main>
