@@ -11,7 +11,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'password'], 'required'],
+            [['username', 'password', 'email'], 'required'],
+            ['email', 'email'],
             ['auth_key', 'string'],
             ['is_admin', 'integer'],
         ];
@@ -63,8 +64,19 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->auth_key = Yii::$app->security->generateRandomString();
     }
 
+    /**
+     * Generates password hash from password and sets it to the model
+     *
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = Yii::$app->security->generatePasswordHash($password);
+    }
+
     public function validatePassword($password)
     {
         return Yii::$app->security->validatePassword($password, $this->password);
     }
+
 }
