@@ -12,7 +12,9 @@ use yii\bootstrap\ActiveForm;
 <main class="site-login"">
 <div class="container">
     <section class="registration__user">
-        <h1>Регистрация аккаунта</h1>
+        <h3>Регистрация аккаунта</h3>
+        <p>Регистрация на сайте позволит Вам заказывать товары со скидкой и быть в курсе наших новостей!</p>
+
         <div class="registration-wrapper">
 
             <?php $form = ActiveForm::begin([
