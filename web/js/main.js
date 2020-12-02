@@ -56,7 +56,7 @@ $('.product-button__add').on('click', function (evt) {
                 icon: 'success',
                 title: 'Товар добавлен в корзину!',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 900
             });
             $('.menu-quantity').html(totalQuantity);
         },
