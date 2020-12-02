@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/config-secret.php';
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -38,8 +38,8 @@ $config = [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.mail.ru',
-                'username' => 'igor_test_2020@mail.ru',
-                'password' => 'test_12345_new',
+                'username' => MAIL_USERNAME,
+                'password' => MAIL_PWD,
                 'port' => '465',
                 'encryption' => 'ssl',
             ],
