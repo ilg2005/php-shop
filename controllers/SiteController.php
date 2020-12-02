@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 
 class SiteController extends Controller
 {
+    public $layout = 'auth';
+
     public function behaviors()
     {
         return [
