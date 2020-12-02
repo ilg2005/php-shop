@@ -75,6 +75,7 @@ $session->open();
 <?= OrderFormWidget::widget([]) ?>
 
 <?php $this->endBody() ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.11.0/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
 <?php $this->endPage() ?>

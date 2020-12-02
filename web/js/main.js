@@ -51,7 +51,13 @@ $('.product-button__add').on('click', function (evt) {
         data: {name: name},
         type: 'GET',
         success: function (totalQuantity) {
-            alert('Товар добавлен в корзину!');
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Товар добавлен в корзину!',
+                showConfirmButton: false,
+                timer: 1000
+            });
             $('.menu-quantity').html(totalQuantity);
         },
         error: function () {
