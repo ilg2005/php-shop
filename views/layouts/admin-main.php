@@ -32,9 +32,6 @@ $session->open();
             <div class="header">
                 <a href="/">На главную</a>
                 <a href="/site/logout">Выход</a>
-                <form action="<?= Url::to(['category/index']) ?>" method="get">
-                    <input type="text" style="padding: 5px" placeholder="Поиск..." name="search">
-                </form>
             </div>
         </div>
     </header>
