@@ -17,7 +17,7 @@ YiiAsset::register($this);
     <h2><?= Html::encode($this->title) ?></h2>
 
     <p>
-        <?= Html::a('Назад', ['/admin'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Назад', ['/admin-order'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Обновить', ['update', 'id' => $order->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $order->id], [
             'class' => 'btn btn-danger',

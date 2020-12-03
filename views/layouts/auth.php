@@ -4,10 +4,8 @@
 
 /* @var $content string */
 
-use app\widgets\OrderFormWidget;
 use yii\helpers\Html;
 use app\assets\AppAsset;
-use yii\helpers\Url;
 
 AppAsset::register($this);
 $session = Yii::$app->session;

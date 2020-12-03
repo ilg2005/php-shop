@@ -5,9 +5,7 @@
 /* @var $content string */
 
 use app\assets\AdminAppAsset;
-use app\widgets\OrderFormWidget;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 AdminAppAsset::register($this);
 $session = Yii::$app->session;
@@ -31,6 +29,7 @@ $session->open();
         <div class="container">
             <div class="header">
                 <a href="/">На главную</a>
+                <a href="/admin-order">Заказы</a>
                 <a href="/site/logout">Выход</a>
             </div>
         </div>

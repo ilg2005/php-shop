@@ -11,9 +11,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class AdminController extends Controller
+class AdminOrderController extends Controller
 {
-    public $layout = 'admin-main';
+    public $layout = 'admin';
 
     public function behaviors()
     {
