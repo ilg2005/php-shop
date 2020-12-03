@@ -6,6 +6,7 @@
 
 use app\assets\AdminAppAsset;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 AdminAppAsset::register($this);
 $session = Yii::$app->session;
@@ -28,7 +29,7 @@ $session->open();
     <header>
         <div class="container">
             <div class="header">
-                <a href="/">На главную</a>
+                <a href="<?= Url::home() ?>">На главную</a>
                 <a href="/admin-order">Заказы</a>
                 <a href="/admin-good">Товары</a>
                 <a href="/admin-category">Категории</a>

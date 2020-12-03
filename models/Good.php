@@ -35,6 +35,14 @@ class Good extends ActiveRecord
         return 'good';
     }
 
+    public function rules()
+    {
+        return [
+            [['category', 'name', 'composition', 'descr', 'img', 'link_name'], 'string'],
+            ['price', 'integer'],
+        ];
+    }
+
     public function attributeLabels()
     {
         return [
