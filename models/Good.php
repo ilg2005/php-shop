@@ -34,4 +34,18 @@ class Good extends ActiveRecord
     {
         return 'good';
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'category' => 'Категория',
+            'name' => 'Название',
+            'composition' => 'Состав',
+            'price' => 'Цена',
+            'descr' => 'Описание',
+            'img' => 'Изображение',
+
+        ];
+    }
+
 }

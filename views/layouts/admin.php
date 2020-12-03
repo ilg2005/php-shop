@@ -30,6 +30,8 @@ $session->open();
             <div class="header">
                 <a href="/">На главную</a>
                 <a href="/admin-order">Заказы</a>
+                <a href="/admin-good">Товары</a>
+                <a href="/admin-category">Категории</a>
                 <a href="/site/logout">Выход</a>
             </div>
         </div>
