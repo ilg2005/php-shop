@@ -12,7 +12,7 @@ use app\models\LoginForm;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 
-class SiteController extends Controller
+class AuthController extends Controller
 {
     public $layout = 'auth';
 
@@ -28,11 +28,11 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'allow' => false,
+                        'allow' => true,
                         'actions' => ['login', 'signup'],
                         'roles' => ['@'],
-                        'denyCallback' => function () {
-                            return $this->redirect('/');
+                        'matchCallback' => function () {
+                            return $this->goHome();
                         }
                     ],
                     [
@@ -40,7 +40,7 @@ class SiteController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
                         'matchCallback' => function () {
-                            return $this->redirect('/');
+                            return $this->goHome();
                         }
                     ],
 
@@ -58,9 +58,9 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
+           /* 'error' => [
                 'class' => 'yii\web\ErrorAction',
-            ],
+            ],*/
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
@@ -105,7 +105,7 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 
-            return (Yii::$app->user->identity->is_admin) ? $this->redirect('/admin-order') : $this->goBack();
+            return (Yii::$app->user->identity->is_admin) ? $this->redirect('/admin-order') : $this->goHome();
         }
 
         $model->password = '';
@@ -122,7 +122,13 @@ class SiteController extends Controller
     }
 
 
-
+    public function actionError()
+    {
+        $exception = Yii::$app->errorHandler->exception;
+        if ($exception !== null) {
+            return $this->render('error', ['exception' => $exception]);
+        }
+    }
 
 
 

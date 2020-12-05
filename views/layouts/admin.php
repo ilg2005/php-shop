@@ -34,7 +34,7 @@ $currentUrl = Yii::$app->request->url;
                 <a href="/admin-order" class="<?= ($currentUrl === '/admin-order') ? 'active' : '' ?>">Заказы</a>
                 <a href="/admin-good" class="<?= ($currentUrl === '/admin-good') ? 'active' : '' ?>">Товары</a>
                 <a href="/admin-category" class="<?= ($currentUrl === '/admin-category') ? 'active' : '' ?>">Категории</a>
-                <a href="/site/logout">Выход</a>
+                <a href="/auth/logout">Выход</a>
             </div>
         </div>
     </header>

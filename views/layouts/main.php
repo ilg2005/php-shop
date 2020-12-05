@@ -41,12 +41,12 @@ $session->open();
 
                 <?php if (Yii::$app->user->isGuest) : ?>
                     <div class="row header">
-                        <a class="mr-2" href="/site/login">Вход</a>
+                        <a class="mr-2" href="/auth/login">Вход</a>
                         /
-                        <a class="ml-2" href="/site/signup" >Регистрация</a>
+                        <a class="ml-2" href="/auth/signup" >Регистрация</a>
                     </div>
                 <?php else : ?>
-                    <a href="/site/logout">Выход</a>
+                    <a href="/auth/logout">Выход</a>
                 <?php endif; ?>
             </div>
         </div>
