@@ -5,43 +5,10 @@ namespace app\controllers;
 use Yii;
 use app\models\Category;
 use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
-class AdminCategoryController extends Controller
+class AdminCategoryController extends AdminBehaviorsController
 {
-
-    public $layout = 'admin';
-
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['index', 'create', 'view', 'update', 'delete'],
-                        'matchCallback' => function () {
-                            return Yii::$app->user->identity->is_admin;
-                        }
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'index' => ['post', 'get'],
-                    'create' => ['post', 'get'],
-                    'view' => ['post', 'get'],
-                    'update' => ['post', 'get'],
-                    'delete' => ['post', 'get'],
-                ],
-            ],
-        ];
-    }
 
     public function actionIndex()
     {

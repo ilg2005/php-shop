@@ -6,41 +6,10 @@ use app\models\OrderGood;
 use Yii;
 use app\models\Order;
 use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
-class AdminOrderController extends Controller
+class AdminOrderController extends AdminBehaviorsController
 {
-    public $layout = 'admin';
-
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['index', 'view', 'update', 'delete'],
-                        'matchCallback' => function () {
-                            return Yii::$app->user->identity->is_admin;
-                        }
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'index' => ['post', 'get'],
-                    'view' => ['post', 'get'],
-                    'update' => ['post', 'get'],
-                    'delete' => ['post', 'get'],
-                ],
-            ],
-        ];
-    }
 
     public function actionIndex()
     {
