@@ -11,6 +11,7 @@ use yii\helpers\Url;
 AdminAppAsset::register($this);
 $session = Yii::$app->session;
 $session->open();
+$currentUrl = Yii::$app->request->url;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -30,9 +31,9 @@ $session->open();
         <div class="container">
             <div class="header">
                 <a href="<?= Url::home() ?>">На главную</a>
-                <a href="/admin-order">Заказы</a>
-                <a href="/admin-good">Товары</a>
-                <a href="/admin-category">Категории</a>
+                <a href="/admin-order" class="<?= ($currentUrl === '/admin-order') ? 'active' : '' ?>">Заказы</a>
+                <a href="/admin-good" class="<?= ($currentUrl === '/admin-good') ? 'active' : '' ?>">Товары</a>
+                <a href="/admin-category" class="<?= ($currentUrl === '/admin-category') ? 'active' : '' ?>">Категории</a>
                 <a href="/site/logout">Выход</a>
             </div>
         </div>

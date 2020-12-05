@@ -46,6 +46,11 @@ body {
     font-weight: 700;
 }
 
+.header .active {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
 .product {
     margin-bottom: 20px;
     padding: 15px;
