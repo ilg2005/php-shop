@@ -106,3 +106,4 @@ modalContentElement.on('click', '#order', function (evt) {
     })*/
 
 });
+
