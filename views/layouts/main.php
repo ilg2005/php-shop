@@ -4,17 +4,13 @@
 
 /* @var $content string */
 
-use app\assets\AdminAppAsset;
 use app\widgets\OrderFormWidget;
 use yii\helpers\Html;
 use app\assets\AppAsset;
 use yii\helpers\Url;
 
-if (Yii::$app->request->url === '/history') {
-    AdminAppAsset::register($this);
-} else {
-    AppAsset::register($this);
-}
+AppAsset::register($this);
+
 $session = Yii::$app->session;
 $session->open();
 ?>
@@ -35,10 +31,10 @@ $session->open();
     <header>
         <div class="container">
             <div class="header">
-                <?= Yii::$app->user->identity->is_admin ? '<a href="/admin-order">Админка</a>' : '<a href="/">На главную</a>'?>
+                <?= Yii::$app->user->identity->is_admin ? '<a href="/admin-order">Админка</a>' : '<a href="/">На главную</a>' ?>
 
                 <?php if (!Yii::$app->user->isGuest) : ?>
-                <a href="/history">Мои заказы</a>
+                    <a href="/history">Мои заказы</a>
                 <?php endif; ?>
 
                 <a href="#" data-toggle="modal" data-target="#modalCart">Корзина (<span
@@ -52,7 +48,7 @@ $session->open();
                     <div class="row header">
                         <a class="mr-2" href="/auth/login">Вход</a>
                         /
-                        <a class="ml-2" href="/auth/signup" >Регистрация</a>
+                        <a class="ml-2" href="/auth/signup">Регистрация</a>
                     </div>
                 <?php else : ?>
                     <a href="/auth/logout">Выход</a>
