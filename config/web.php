@@ -61,6 +61,8 @@ $config = [
             'rules' => [
                'category/<catName:.+>' => 'category/index',
                'good/<name:.+>' => 'good/index',
+                'login' => 'auth/login',
+                'signup' => 'auth/signup',
             ],
         ],
 

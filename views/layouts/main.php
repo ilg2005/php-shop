@@ -32,6 +32,10 @@ $session->open();
             <div class="header">
                 <?= Yii::$app->user->identity->is_admin ? '<a href="/admin-order">Админка</a>' : '<a href="/">На главную</a>'?>
 
+                <?php if (!Yii::$app->user->isGuest && !Yii::$app->user->identity->is_admin) : ?>
+                <a href="/category/history">Мои заказы</a>
+                <?php endif; ?>
+
                 <a href="#" data-toggle="modal" data-target="#modalCart">Корзина (<span
                             class="menu-quantity"><?= $session['totalQuantity'] ?? 0 ?></span>)</a>
 
