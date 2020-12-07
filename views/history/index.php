@@ -6,7 +6,7 @@ use sjaakp\bandoneon\Bandoneon;
 
 <div class="container mt-5">
     <?php if (!count($orders)) : ?>
-        <h4> У Вас пока нет ни одного заказа </h4>
+        <h4 class="text-center"> У Вас пока нет ни одного заказа </h4>
     <?php else: ?>
         <?php foreach ($orders as $order) : ?>
             <div class="row mb-3 justify-content-center">
