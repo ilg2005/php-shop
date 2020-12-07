@@ -60,7 +60,7 @@ $session->open();
             </div>
         </div>
     </header>
-    <div class="container">
+    <div class="container main-content">
         <?= $content ?>
     </div>
 

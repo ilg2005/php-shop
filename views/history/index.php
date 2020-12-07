@@ -5,13 +5,12 @@ use sjaakp\bandoneon\Bandoneon;
 
 
 if (!count($orders)) : ?>
-    <h4> У Вас пока нет ни одного заказа </h4>
+    <h4 class="mt-5"> У Вас пока нет ни одного заказа </h4>
 <?php else: ?>
-
     <?php Bandoneon::begin() ?>
 
     <?php foreach ($orders as $order) : ?>
-        <h4>Заказ <strong><?= $order->id ?></strong> от <strong><?= $order->date ?>&nbsp;&nbsp;</strong>
+        <h4 class="text-center">Заказ <strong><?= $order->id ?></strong> от <strong><?= $order->date ?>&nbsp;&nbsp;</strong>
             <button type="button" class="btn btn-success btn-sm">В корзину</button>
         </h4>
         <div>

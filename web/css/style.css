@@ -86,6 +86,7 @@ header {
 
 header {
     margin-top: 0;
+    margin-bottom: 15px;
 }
 
 .footer,
@@ -97,6 +98,10 @@ header {
     justify-content: center;
 }
 
+.main-content {
+    min-height: calc(100vh - 50px);
+}
+
 .header a {
     color: #ffffff;
 }
@@ -104,3 +109,5 @@ header {
 .header {
     justify-content: space-around;
 }
+
+

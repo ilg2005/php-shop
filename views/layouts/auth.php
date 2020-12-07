@@ -34,7 +34,7 @@ $session->open();
             </div>
         </div>
     </header>
-    <div class="container mt-2">
+    <div class="container main-content mt-2">
         <?= $content ?>
     </div>
 
