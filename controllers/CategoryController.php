@@ -5,6 +5,7 @@ namespace app\controllers;
 
 
 use app\models\Good;
+use app\models\Order;
 use Yii;
 use yii\web\Controller;
 
@@ -27,6 +28,5 @@ class CategoryController extends Controller
 
         return $this->render('index', compact('goods', 'search', 'session'));
     }
-
 
 }

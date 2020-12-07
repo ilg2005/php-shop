@@ -90,4 +90,8 @@ class User extends ActiveRecord implements IdentityInterface
         return Yii::$app->security->validatePassword($password, $this->password);
     }
 
+    public function getOrders() {
+        return $this->hasMany(Order::class, ['user_id' => 'id']);
+    }
+
 }

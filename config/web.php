@@ -60,6 +60,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                'category/<catName:.+>' => 'category/index',
+               'history' => 'history/index',
                'good/<name:.+>' => 'good/index',
                 'login' => 'auth/login',
                 'signup' => 'auth/signup',
