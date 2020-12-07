@@ -2,6 +2,8 @@
 
 use app\models\OrderGood;
 use sjaakp\bandoneon\Bandoneon;
+use yii\helpers\Url;
+
 ?>
 
 <div class="container mt-5">
@@ -50,7 +52,7 @@ use sjaakp\bandoneon\Bandoneon;
                         </tbody>
 
                     </table>
-                    <a href="/" class="btn btn-success btn-sm toCart btn-block">В корзину</a>
+
                 </div>
                 <?php Bandoneon::end() ?>
 

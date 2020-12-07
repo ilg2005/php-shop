@@ -4,7 +4,10 @@
 namespace app\controllers;
 
 
+use app\models\Cart;
+use app\models\Good;
 use app\models\Order;
+use app\models\OrderGood;
 use Yii;
 use yii\web\Controller;
 
@@ -18,5 +21,6 @@ class HistoryController extends Controller
         return $this->render('index', compact ('orders'));
 
     }
+
 
 }
