@@ -14,16 +14,22 @@ class Order extends ActiveRecord
         return 'order';
     }
 
-    public function getGoods()
+    /*public function getGoods()
     {
         return $this->hasMany(Good::class, ['id' => 'product_id'])
             ->viaTable('order_good', ['order_id' => 'id']);
+    }*/
+
+    public function getGoods($orderID)
+    {
+        return OrderGood::find()->where(['order_id' => $orderID])->all();
     }
 
-    public function getOrderGoods()
+
+    /*public function getOrderGoods()
     {
         return $this->hasMany(OrderGood::class, ['order_id' => 'id']);
-    }
+    }*/
 
     public function getUser()
     {

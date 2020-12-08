@@ -32,9 +32,8 @@ use yii\helpers\Url;
                         </thead>
 
                         <tbody>
-                        <?php /*$goods = OrderGood::find()->where(['order_id' => $order->id])->all();*/
-                               $orderQty = 0; ?>
-                        <?php foreach ($order->getGoods() as $id => $good): ?>
+                        <?php $orderQty = 0; ?>
+                        <?php foreach ($order->getGoods($order->id) as $id => $good): ?>
 
                             <tr data-id="<?= $id ?>">
 
