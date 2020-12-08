@@ -5,6 +5,8 @@ namespace app\controllers;
 
 
 use app\models\Good;
+use app\models\OrderGood;
+use yii\helpers\Url;
 use yii\web\Controller;
 use app\models\Cart;
 use Yii;
@@ -48,6 +50,16 @@ class CartController extends Controller
         $session->remove('totalQuantity');
         $session->remove('totalPrice');
         return $this->renderPartial('index', compact('session'));
+    }
+
+    public function actionAddOrder($orderID) {
+        $session = Yii::$app->session;
+        $session->open();
+        $cart = new Cart();
+        $products = OrderGood::find()->where(['order_id' => $orderID])->all();
+        $cart->addOrder2Cart($products);
+        Yii::$app->session->setFlash('success', "Заказ помещен в корзину!");
+        return $this->redirect(Url::to(['history/index']));
     }
 
 }

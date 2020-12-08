@@ -5,7 +5,12 @@ use sjaakp\bandoneon\Bandoneon;
 use yii\helpers\Url;
 
 ?>
-
+<?php if( Yii::$app->session->hasFlash('success') ): ?>
+    <div class="alert alert-success alert-dismissible text-center col-6 offset-3" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <?php echo Yii::$app->session->getFlash('success'); ?>
+    </div>
+<?php endif;?>
 <div class="container mt-5">
     <?php if (!count($orders)) : ?>
         <h4 class="text-center"> У Вас пока нет ни одного заказа </h4>
@@ -27,8 +32,9 @@ use yii\helpers\Url;
                         </thead>
 
                         <tbody>
-                        <?php $goods = OrderGood::find()->where(['order_id' => $order->id])->all(); ?>
-                        <?php foreach ($goods as $id => $good): ?>
+                        <?php /*$goods = OrderGood::find()->where(['order_id' => $order->id])->all();*/
+                               $orderQty = 0; ?>
+                        <?php foreach ($order->getGoods() as $id => $good): ?>
 
                             <tr data-id="<?= $id ?>">
 
@@ -36,10 +42,11 @@ use yii\helpers\Url;
                                 <td style="vertical-align: middle"><?= $good->quantity ?> шт</td>
                                 <td style="vertical-align: middle"><?= $good->price * $good->quantity ?> рублей</td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php $orderQty += $good->quantity;
+                        endforeach; ?>
                         <tr style="border-top: 4px solid black">
                             <td>Всего товаров</td>
-                            <td class="text-left"><span class="total-quantity"><?= count($goods) ?></span> шт</td>
+                            <td class="text-left"><span class="total-quantity"><?= $orderQty ?></span> шт</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -52,7 +59,7 @@ use yii\helpers\Url;
                         </tbody>
 
                     </table>
-
+                    <a href="<?= Url::toRoute(['cart/add-order', 'orderID' => $order->id]) ?>" class="btn btn-success btn-sm toCart btn-block">В корзину</a>
                 </div>
                 <?php Bandoneon::end() ?>
 

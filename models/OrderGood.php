@@ -19,6 +19,11 @@ class OrderGood extends ActiveRecord
         return $this->hasOne(Order::class, ['id' => 'order_id']);
     }
 
+    public function getGoods()
+    {
+        return $this->hasMany(Good::class, ['id' => 'order_id']);
+    }
+
     public function rules()
     {
         return [
