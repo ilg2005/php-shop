@@ -31,7 +31,7 @@ $session->open();
     <header>
         <div class="container">
             <div class="header">
-                <?= Yii::$app->user->identity->is_admin ? '<a href="/admin-order">Админка</a>' : '<a href="/">На главную</a>' ?>
+                <?= (!Yii::$app->user->isGuest && Yii::$app->user->identity->is_admin) ? '<a href="/admin-order">Админка</a>' : '<a href="/">На главную</a>' ?>
 
                 <?php if (!Yii::$app->user->isGuest) : ?>
                     <a href="/history">Мои заказы</a>
