@@ -8,6 +8,8 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
+use yii\web\HttpException;
+use yii\web\NotFoundHttpException;
 
 class AdminBehaviorsController extends Controller
 {
@@ -24,6 +26,14 @@ class AdminBehaviorsController extends Controller
                         'actions' => ['index', 'create', 'view', 'update', 'delete', 'error'],
                         'matchCallback' => function () {
                             return Yii::$app->user->identity->is_admin;
+                        }
+                    ],
+                    [
+                        'allow' => false,
+                        'actions' => ['index', 'create', 'view', 'update', 'delete', 'error'],
+                        'roles' => ['?', '@'],
+                        'denyCallback' => function () {
+                            throw new HttpException(403, 'Доступ запрещен');
                         }
                     ],
                 ],
