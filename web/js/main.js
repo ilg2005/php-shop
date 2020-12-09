@@ -59,6 +59,7 @@ $('.product-button__add').on('click', function (evt) {
                 timer: 900
             });
             $('.menu-quantity').html(totalQuantity);
+
         },
         error: function () {
             alert('Ошибка: товар не добавлен в корзину!');

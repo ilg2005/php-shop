@@ -28,7 +28,8 @@ class Cart extends ActiveRecord
             ];
         }
 
-        $session['totalQuantity'] = isset($session['totalQuantity']) ? ++$session['totalQuantity'] : 1;
+        $session['totalQuantity'] += 1;
+
         $session['totalPrice'] = isset($session['totalPrice']) ? $session['totalPrice'] + $cart[$good->id]['price'] : $cart[$good->id]['price'];
 
         $session['cart'] = $cart;
