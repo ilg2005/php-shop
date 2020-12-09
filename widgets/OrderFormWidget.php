@@ -34,7 +34,7 @@ class OrderFormWidget extends Widget
         $order = new Order();
         $model = new OrderForm();
 
-        $userID = Yii::$app->user->isGuest ?: Yii::$app->user->identity->getId();
+        $userID = Yii::$app->user->isGuest ? 0 : Yii::$app->user->identity->getId();
 
         if ($session['totalPrice'] && $model->load(Yii::$app->request->post()) && $model->validate()) {
 
