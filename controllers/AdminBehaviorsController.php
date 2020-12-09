@@ -21,7 +21,7 @@ class AdminBehaviorsController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create', 'view', 'update', 'delete'],
+                        'actions' => ['index', 'create', 'view', 'update', 'delete', 'error'],
                         'matchCallback' => function () {
                             return Yii::$app->user->identity->is_admin;
                         }
