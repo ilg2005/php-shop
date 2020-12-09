@@ -4,10 +4,11 @@
 namespace app\controllers;
 
 
+use app\models\Category;
 use app\models\Good;
-use app\models\Order;
 use Yii;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 
 class CategoryController extends Controller
 {
@@ -25,7 +26,10 @@ class CategoryController extends Controller
         if ($search) {
             $goods = $model->getSearchResults($search);
         }
-
+        $catNames = Category::find()->select('cat_name')->column();
+        if ($catName && !in_array($catName, $catNames)) {
+            throw new NotFoundHttpException('Категория не существует');
+        }
         return $this->render('index', compact('goods', 'search', 'session'));
     }
 
