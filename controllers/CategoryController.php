@@ -21,9 +21,15 @@ class CategoryController extends Controller
         $goods = $model->getAllGoods();
         $catNames = Category::find()->select('cat_name')->column();
         $search = Yii::$app->request->get('search');
+
         if ($catName && !in_array($catName, $catNames) && !$search) {
             throw new NotFoundHttpException('Категория не существует');
         }
+
+        if ($catName) {
+            $goods = $model->getGoodsByCategory($catName);
+        }
+
         if ($search) {
             $goods = $model->getSearchResults($search);
         }
