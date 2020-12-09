@@ -55,17 +55,19 @@ YiiAsset::register($this);
         </thead>
 
         <tbody>
-        <?php foreach ($goods as $id => $good): ?>
+        <?php $goodsQty = 0;
+            foreach ($goods as $id => $good): ?>
             <tr data-id="<?= $id ?>">
 
                 <td style="vertical-align: middle"><?= $good['name'] ?></td>
                 <td style="vertical-align: middle"><?= $good['quantity'] ?> шт</td>
                 <td style="vertical-align: middle"><?= $good['price'] * $good['quantity'] ?> рублей</td>
             </tr>
+        <?php $goodsQty += $good['quantity'] ?>
         <?php endforeach; ?>
         <tr style="border-top: 4px solid black">
             <td >Всего товаров</td>
-            <td class="text-left"><span class="total-quantity"><?= count($goods) ?></span> шт</td>
+            <td class="text-left"><span class="total-quantity"><?= $goodsQty ?></span> шт</td>
             <td></td>
         </tr>
         <tr>
