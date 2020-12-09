@@ -19,17 +19,15 @@ class CategoryController extends Controller
         $session->open();
         $model = new Good();
         $goods = $model->getAllGoods();
+        $catNames = Category::find()->select('cat_name')->column();
         $search = Yii::$app->request->get('search');
-        if ($catName) {
-            $goods = $model->getGoodsByCategory($catName);
+        if ($catName && !in_array($catName, $catNames) && !$search) {
+            throw new NotFoundHttpException('Категория не существует');
         }
         if ($search) {
             $goods = $model->getSearchResults($search);
         }
-        $catNames = Category::find()->select('cat_name')->column();
-        if ($catName && !in_array($catName, $catNames)) {
-            throw new NotFoundHttpException('Категория не существует');
-        }
+
         return $this->render('index', compact('goods', 'search', 'session'));
     }
 
