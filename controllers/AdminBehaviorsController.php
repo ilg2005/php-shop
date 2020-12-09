@@ -9,7 +9,6 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\HttpException;
-use yii\web\NotFoundHttpException;
 
 class AdminBehaviorsController extends Controller
 {
