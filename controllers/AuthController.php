@@ -87,8 +87,8 @@ class AuthController extends Controller
             $user->save();
 
 
-            Yii::$app->session->setFlash('success', 'Регистрация успешна!');
-            return $this->goHome();
+            Yii::$app->session->setFlash('signup', 'Регистрация успешна!');
+            return $this->redirect('/login');
         }
 
         return $this->render('signup', ['model' => $model,]);
